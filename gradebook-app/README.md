@@ -1,59 +1,51 @@
-# Gradebook
+# Gradebook 📒
 
-A teacher's gradebook: overview analytics, a spreadsheet-style grades grid,
-per-student reports, and class management. Data is stored in the browser
-(`localStorage`) — no sign-in, no backend.
+A little gradebook for teachers: overview stats, a spreadsheet-style grades grid, individual student reports, and a place to manage your classes. Everything saves right in your browser (`localStorage`), so there's no sign-in and no backend to deal with.
 
-## Run it locally
+## Try it out on your computer
 
-You need [Node.js](https://nodejs.org) 18+ installed.
+You'll need [Node.js](https://nodejs.org) 18 or newer.
 
 ```bash
 npm install
 npm run dev
 ```
 
-This starts a local dev server (usually at `http://localhost:5173`) with
-hot-reload. Open that URL in your browser.
+That starts a local server, usually at `http://localhost:5173`. Just open that link in your browser and you're good to go. It updates live as you make changes.
 
-To build an optimized production version:
+When you want a polished version ready to share:
 
 ```bash
 npm run build
-npm run preview   # preview the production build locally
+npm run preview   # take a peek at the finished build
 ```
 
-The build output goes to `dist/`.
+The finished files end up in the `dist/` folder.
 
-## Put it on the web
+## Share it online
 
-Any of these will get you a real, shareable URL in a few minutes.
+Pick whichever feels easiest. Any of these gets you a real link in a few minutes.
 
-### Option A — Vercel (easiest)
+### Option A: Vercel (the easiest one)
 
-1. Push this folder to a GitHub repo (see below).
-2. Go to [vercel.com](https://vercel.com), sign in with GitHub, click
-   **Add New → Project**, and select the repo.
-3. Vercel auto-detects Vite — leave the defaults and click **Deploy**.
-4. You'll get a URL like `gradebook-yourname.vercel.app`.
+1. Push this folder to a GitHub repo (steps are below).
+2. Head to [vercel.com](https://vercel.com), sign in with GitHub, click **Add New → Project**, and choose your repo.
+3. Vercel figures out it's a Vite project on its own, so just leave the settings alone and hit **Deploy**.
+4. You'll get a link like `gradebook-yourname.vercel.app`.
 
-### Option B — Netlify
+### Option B: Netlify
 
-1. Run `npm run build` locally to generate the `dist/` folder.
-2. Go to [app.netlify.com/drop](https://app.netlify.com/drop) and drag the
-   `dist` folder in. It deploys instantly with a shareable URL.
-   (Or connect the GitHub repo for auto-deploys on every push, same as Vercel.)
+1. Run `npm run build` on your computer to make the `dist/` folder.
+2. Go to [app.netlify.com/drop](https://app.netlify.com/drop) and drag the `dist` folder onto the page. It goes live right away with a link you can share.
+   (You can also connect your GitHub repo so it updates every time you push, just like Vercel.)
 
-### Option C — GitHub Pages
+### Option C: GitHub Pages
 
-1. `npm run build`
-2. Push the contents of `dist/` to a `gh-pages` branch (or use the
-   `gh-pages` npm package: `npm i -D gh-pages`, add
-   `"deploy": "gh-pages -d dist"` to `package.json` scripts, then
-   `npm run build && npm run deploy`).
-3. Enable GitHub Pages on that branch in the repo settings.
+1. Run `npm run build`.
+2. Push what's inside `dist/` to a `gh-pages` branch. Or use the `gh-pages` package: run `npm i -D gh-pages`, add `"deploy": "gh-pages -d dist"` to the scripts in `package.json`, then `npm run build && npm run deploy`.
+3. Turn on GitHub Pages for that branch in your repo settings.
 
-## Getting this into GitHub (if you haven't already)
+## Getting it onto GitHub (if you haven't yet)
 
 ```bash
 cd gradebook-app
@@ -65,19 +57,10 @@ git remote add origin https://github.com/<your-username>/<repo-name>.git
 git push -u origin main
 ```
 
-Then point Vercel/Netlify at that repo as in Option A/B above.
+After that, connect Vercel or Netlify to the repo like in Option A or B.
 
-## Notes
+## Good to know
 
-- **Data storage**: everything (classes, students, marks, comments) is saved
-  to the browser's `localStorage` on the device being used. It does not sync
-  across devices or browsers. If you want real accounts and cloud sync
-  (so a class's grades follow the teacher between a laptop and a phone),
-  that's a separate step — ask and it can be added (e.g. via Supabase or
-  Firebase) instead of localStorage.
-- **Styling**: Tailwind is loaded via the CDN `<script>` tag in `index.html`
-  for zero-config setup. That's fine for a project this size; if you later
-  want faster load times, swap it for a proper Tailwind build step
-  (`npm install -D tailwindcss postcss autoprefixer` + config files).
-- **Reset demo data**: the Classes page has a "Reset demo data" button that
-  restores the three seeded classes if you want to start over.
+- **Where your data lives:** classes, students, marks, and comments are all saved in your browser's `localStorage` on whatever device you're using. They won't sync between devices or browsers. If you'd like real accounts and cloud sync, so your grades follow you from laptop to phone, that's a separate add-on. You could use something like Supabase or Firebase instead of `localStorage`.
+- **Styling:** Tailwind loads through a CDN `<script>` tag in `index.html`, so there's nothing to set up. That works great for a project this size. If you want it to load faster later, you can switch to a proper Tailwind build (`npm install -D tailwindcss postcss autoprefixer`, plus the config files).
+- **Starting fresh:** the Classes page has a "Reset demo data" button that brings back the three starter classes if you want to wipe everything and begin again.
